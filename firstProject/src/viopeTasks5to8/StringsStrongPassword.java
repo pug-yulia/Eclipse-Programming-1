@@ -22,14 +22,30 @@ public class StringsStrongPassword {
 	}
 
 	private static boolean checkStrength(String password) {
+		
+		
+		int uppercaseCount = 0;
+		int lowercaseCount = 0;
+		int digitCount = 0;
+		int otherCount = 0;
 
-		if (password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\\\S+$).{8,}$")) {
-			return true;
-		} else if (password.matches("Passw0rd") || (password.matches("passw0r+"))) {
-			return true;
-		} else {
-			return false;
+		for (int i = 0; i < password.length(); i++) {
+			
+			if (Character.isUpperCase(password.charAt(i))) {
+				uppercaseCount = 1;
+			} else if (Character.isLowerCase(password.charAt(i))) {
+				lowercaseCount = 1;
+			} else if (Character.isDigit(password.charAt(i))) {
+				digitCount = 1;
+			} else {
+				otherCount = 1;
+			}
 		}
+
+		int sum = uppercaseCount + lowercaseCount + digitCount + otherCount;
+		return password.length() >= 8 && sum >= 3;
+			
+		
 	}
 
 }
