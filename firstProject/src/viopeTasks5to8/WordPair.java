@@ -1,6 +1,7 @@
 package viopeTasks5to8;
 
 public class WordPair {
+	//aimplements Comparable<WordPair> 
 
 	private String englishWord;
 	private String finnishWord;
@@ -22,5 +23,10 @@ public class WordPair {
 	public String toString() {
         return englishWord + " = " + finnishWord;
     }
+	
+//	@Override
+//    public int compareTo(WordPair other) {
+//        return this.englishWord.compareTo(other.getEnglishWord());
+//    }
 
 }
